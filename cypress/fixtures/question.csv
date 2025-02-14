@@ -1,0 +1,4 @@
+question,type,answer
+"Right now, is the Volunteer able to understand and complete this form with your support?",segment,Yes
+"Which of the following apply to you right now?",dropdown,I am helping a Volunteer who is here with me now
+"What is your relationship to the Volunteer?",radio,Husband
