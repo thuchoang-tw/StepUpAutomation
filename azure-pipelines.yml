@@ -1,0 +1,34 @@
+trigger:
+- main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  CYPRESS_CACHE_FOLDER: $(Pipeline.Workspace)/.cache/Cypress
+
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '14.x'
+  displayName: 'Install Node.js'
+
+- script: |
+    npm install -g yarn
+    yarn install
+  displayName: 'Install dependencies'
+
+- script: |
+    npx cypress install
+  displayName: 'Install Cypress'
+
+- script: |
+    npx cypress run --spec "cypress/e2e/proxy/proxy.cy.js"
+  displayName: 'Run Cypress tests'
+
+- task: PublishTestResults@2
+  inputs:
+    testResultsFiles: '**/cypress/results/*.xml'
+    testRunTitle: 'Cypress Tests'
+  condition: succeededOrFailed()
+  displayName: 'Publish Cypress test results'

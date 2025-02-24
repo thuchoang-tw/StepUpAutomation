@@ -21,7 +21,7 @@ describe('Create proxy', () => {
       cy.wrap(token).as('csrfToken'); 
       cy.get('input[name="__RequestVerificationToken"]').eq(0).type(token, { force: true });
       cy.get('button.button--next[type="submit"]').click({ force: true });
-      cy.answerQuestionsFromCSV('question_volunteer.csv');
+      cy.answerQuestionsFromCSV('question_proxy.csv');
       cy.get('button[id="btnNext"]').click();
 
     })
