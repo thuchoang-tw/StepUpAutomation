@@ -35,5 +35,6 @@ describe('Create volunteer', () => {
       cy.answerQuestionsFromCSV('question_volunteer.csv');
       cy.get('button[id="btnNext"]').click();
     })
+    
   })
   
