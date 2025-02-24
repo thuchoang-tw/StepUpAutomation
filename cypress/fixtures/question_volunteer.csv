@@ -1,15 +1,16 @@
 question,type,answer
-"StepUp for Research supports two streams of research - dementia and ageing. Which of those fields of research would the volunteer be interested in participating in?",dropdown,Dementia research
-"What type of accommodation does the volunteer live in?",dropdown,Private Residence
-"Does the volunteer live alone?",segment,Yes
-"Does the volunteer have a carer / someone who knows them well, and who helps support them with their health issues?",segment,Yes
-"Has the volunteer been told by a healthcare professional that they have a form of dementia or Mild Cognitive Impairment?",segment,Yes
-"What diagnosis was the volunteer given by a health professional?",checkbox,Alzheimer's Disease
-"How would the volunteer describe their symptoms?",segment,Mild
-"Is the volunteer taking any of the following medications?",radio,No
-"Does the volunteer have a first-degree relative (e.g., mother, father, sibling) with Alzheimer’s disease or other types of dementia?",segment,No
-"Has the volunteer experienced any of these health issues within the last 12 months?",radio,No
-"Is the volunteer taking any form of medication to help with mood / agitation?",segment,No
-"Does the volunteer have any of these difficulties?",radio,No
-"Are you happy to describe the volunteer’s ancestry (you may select multiple answers)?",radio,No
-"Does the volunteer support, assist or care for a person with any health conditions or disabilities? Please pick one",dropdown,No
+"StepUp for Research supports two streams of research - dementia and ageing. Which of those fields of research would you be interested in participating in?",dropdown,Dementia research
+"What type of accommodation do you live in?",dropdown,Public or Community Housing
+"Do you live alone?",segment,No
+"Do you have a carer / someone who knows you well, and who helps support you with your health issues?",segment,Yes
+"Have you been told by a healthcare professional that you have a form of dementia or Mild Cognitive Impairment?",segment,Yes
+"What diagnosis were you given by a health professional?",radio,Mild Cognitive Impairment
+"How would you describe your symptoms?",segment,Moderate
+"Are you taking any of the following medications?",checkbox,Galantamine (Reminyl)
+"Do you have a first-degree relative (e.g., mother, father, sibling) with Alzheimer’s disease or other types of dementia?",segment,Yes
+"Have you experienced any of these health issues in the last 12 months?",checkbox,Arthritis/Musculoskeletal conditions
+"Are you taking any form of medication to help with mood / agitation?",segment,Yes
+"Do you have any of these difficulties?",checkbox,Deafness
+"Are you happy to describe your ancestry (you may select multiple answers)?",checkbox,Australian
+"Do you support, assist or care for a person with any health conditions or disabilities? Please pick one",dropdown,Yes - currently supporting/assisting/caring for a person (e.g., relative/friend/spouse/partner)
+"Which of the following best describes the health condition of the person you care for?",dropdown,The person has dementia and lives at home

@@ -19,15 +19,60 @@ import Papa from 'papaparse';
     cy.get('button[id="btnLogin"]').click();
 });
 
-  Cypress.Commands.add('fillPersonalInfo', (data) => {
-    cy.get(`input[id="Gender_0"][value="${data.gender}"]`).dblclick({ force: true });
-    cy.get(`input[id="SameAddress_0"][value="${data.sameAddress}"]`).dblclick({ force: true });
-    cy.get(`input[id="PrimaryContact_0"][value="${data.primaryContact}"]`).dblclick({ force: true });
+  Cypress.Commands.add('signup', (username, password) => {
+    cy.visit(Cypress.env('baseUrl') + '/SignUp/');
+    cy.get('div[id="consent-checkbox"]').click();
+    cy.get('button[id="btnNext"]').click();
+    cy.get('input[name="Input.Email"]').type(username);
+    cy.get('input[name="Input.Password"]').type(password);
+
+    cy.get('button[id="btnLogin"]').click();
+});
+
+Cypress.Commands.add('fillProxyInfo', (data) => {
+  cy.get(`input[id="Gender_0"][value="${data.gender}"]`).dblclick({ force: true });
+  cy.get(`input[id="SameAddress_0"][value="${data.sameAddress}"]`).dblclick({ force: true });
+  cy.get(`input[id="PrimaryContact_0"][value="${data.primaryContact}"]`).dblclick({ force: true });
+
+  cy.get('input[name="Title"]').type(data.title);
+  cy.get('input[name="FirstName"]').type(data.firstName);
+  cy.get('input[name="Surname"]').type(data.surname);
+  cy.get('input[id="DateOfBirth"]').type(data.dateOfBirth);
+});
+
+Cypress.Commands.add('fillVolunteerInfo', (data) => {
+  cy.get(`input[id="Gender_0"][value="${data.gender}"]`).dblclick({ force: true });
+
+  cy.get('input[name="Title"]').type(data.title);
+  cy.get('input[name="FirstName"]').type(data.firstName);
+  cy.get('input[name="Surname"]').type(data.surname);
+  cy.get('input[id="DateOfBirth"]').type(data.dateOfBirth);
+  cy.get('#TelephoneNumber').type(data.telephone);
+  cy.get('#MobileNumber').type(data.mobile);
   
-    cy.get('input[name="Title"]').type(data.title);
-    cy.get('input[name="FirstName"]').type(data.firstName);
-    cy.get('input[name="Surname"]').type(data.surname);
-    cy.get('input[id="DateOfBirth"]').type(data.dateOfBirth);
+});
+
+  Cypress.Commands.add('fillAddressInfo', (data) => {
+    cy.get('#ContactAddress_Line1').type(data.line1);
+    cy.get('#ContactAddress_Line2').type(data.line2);
+    cy.get('#ContactAddress_City').type(data.city);
+    cy.get("div[id='dropdown-state'] div[class='dropdown__selected']").click({ force: true });
+    cy.get('.dropdown__option').contains(data.state.trim()).click({ force: true });
+    cy.get('#ContactAddress_Postcode').type(data.postcode);
+    
+ 
+  });
+
+  Cypress.Commands.add('fillAccountDetails', (data) => {
+    cy.get('#Email').type(data.email);
+    cy.get('#ConfirmEmail').type(data.email);
+    cy.get('#Password').type(data.password);
+    cy.get('#ConfirmPassword').type(data.password);
+    cy.get(".dropdown__selected").click({ force: true });
+    cy.get('.dropdown__option').contains(data.security_question.trim()).click({ force: true });
+    cy.get('#SecurityAnswer').type(data.security_answer);
+    
+ 
   });
 
 Cypress.Commands.add('answerQuestionsFromCSV', (csvFileName) => {

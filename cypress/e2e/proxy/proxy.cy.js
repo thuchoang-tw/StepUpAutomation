@@ -1,6 +1,6 @@
 describe('Create proxy', () => {
   beforeEach(function () {
-    cy.fixture('person').as('personData');
+    cy.fixture('proxy').as('personData');
   });
 
   it('Register a poroxy', () => {
@@ -13,8 +13,8 @@ describe('Create proxy', () => {
     cy.get('div[id="consent-checkbox"]').click();
 
     cy.get('button[id="btnNext"]').click();
-    cy.fixture('person').then(data => {
-      cy.fillPersonalInfo(data);
+    cy.fixture('proxy').then(data => {
+      cy.fillProxyInfo(data);
     })
     cy.get('input[name="__RequestVerificationToken"]').then(($input) => {
       const token = $input.val();
