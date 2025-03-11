@@ -74,12 +74,35 @@ Cypress.Commands.add('fillVolunteerInfo', (data) => {
     
  
   });
-
+  Cypress.Commands.add('fillStudyInfo', (data) => {
+    cy.get('#Name').type(data.name);
+    cy.get('#AutoCompleteResearcher').type(data.delegate);
+    cy.get('.ui-menu-item').should('be.visible');
+    cy.contains('.ui-menu-item-wrapper', data.delegate).click();
+    cy.get('#btnAddResearcher').dblclick();
+    cy.get('#EthicsName').type(data.ethics_name);
+    cy.get('#EthicsNumber').type(data.ethics_number);
+    cy.get(`input[name="HasFunder"][value="${data.funder}"]`).dblclick({ force: true });
+    cy.get("div[id='dropdown-enrolment'] div[class='dropdown__selected']").click({ force: true });
+    cy.get('.dropdown__option').contains(data.recruitment_type).click({ force: true });
+    cy.get('#EnrolmentNumbers').type(data.enrolment_number);
+    cy.get(`input[name="IsInterventionStudy"][value="${data.intervention}"]`).dblclick({ force: true });
+    cy.contains('label', data.area).find('input[type="checkbox"]').check();
+    cy.get('#dropdown-source').eq(0).find('.dropdown').click();
+    cy.get('.dropdown__option').contains(data.phase).click({ force: true });
+    cy.get('.dropdown-select-other-text').eq(1).find('.dropdown').click();
+    cy.get('.dropdown__option').contains(data.degree).click({ force: true });
+    cy.get('#StartDate').type(data.start_date);
+    cy.get('#ClosingDate').type(data.close_date);
+    cy.get('#Summary').type(data.summary);
+  
+  });
 Cypress.Commands.add('answerQuestionsFromCSV', (csvFileName) => {
   cy.readFile(`cypress/fixtures/${csvFileName}`).then((csvContent) => {
     const rows = Papa.parse(csvContent, { header: true });
     console.log(JSON.stringify(rows));
     rows.data.forEach((row) => {
+      cy.url().should('include', 'www.test.stepupforageingresearch.org.au/');
       const question = row.question;
       const type = row.type;
       const answer = row.answer;

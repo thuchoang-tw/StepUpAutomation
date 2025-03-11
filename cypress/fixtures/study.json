@@ -1,0 +1,18 @@
+{
+    "name": "Test Auto study",
+    "chief": "Researcher Number1 - The University of Forgetful Research",
+    "delegate": "Lane3 Bane3 - TW oz",
+    "ethics_name": "Ethics name test",
+    "ethics_number": "Ethics number test",
+    "funder": "No",
+    "recruitment_type": "Enrolment",
+    "enrolment_number" : "20",
+    "intervention": "No",
+    "area": "Care",
+    "phase": "Phase 1",
+    "degree": "Masters",
+    "start_date": "10/10/2025",
+    "close_date": "10/10/2026",
+    "summary": "Please provide a brief lay summary - matched volunteer can see this summary"
+    
+  }

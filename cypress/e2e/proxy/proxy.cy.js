@@ -1,7 +1,4 @@
-describe('Create proxy', () => {
-  beforeEach(function () {
-    cy.fixture('proxy').as('personData');
-  });
+describe('Proxy testing', () => {
 
   it('Register a poroxy', () => {
 
@@ -9,7 +6,7 @@ describe('Create proxy', () => {
     cy.login(volunteer.username,volunteer.password)
 
     cy.get('a[id="proxy-registration"]').click();
-    cy.answerQuestionsFromCSV('question.csv');
+    cy.answerQuestionsFromCSV('proxy_confrim_question.csv');
     cy.get('div[id="consent-checkbox"]').click();
 
     cy.get('button[id="btnNext"]').click();
